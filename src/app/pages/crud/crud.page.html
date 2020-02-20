@@ -14,28 +14,27 @@
 </ion-list-header>
 
 <ion-row [hidden]="state.add || state.edit">
-  <ion-col size="12">
+  <ion-col size="3">
     <ion-button (click)="onAddHandle(editForm)" type="submit" expand="block">Add</ion-button>
   </ion-col>
+  <ion-col size="9"></ion-col>
 </ion-row>
 
 <!-- BEGIN ADD FORM -->
 <form #addForm="ngForm" novalidate [hidden]="!state.add">
-  <ion-list>
-    <ion-item>
-      <ion-label position="stacked" color="primary">Username</ion-label>
-      <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-        required>
-      </ion-input>
-    </ion-item>
-  </ion-list>
 
   <ion-row>
-    <ion-col>
+    <ion-col size="3">
       <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
-    </ion-col>
-    <ion-col>
       <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
+    </ion-col>
+    <ion-col size="9">
+        <ion-item>
+            <ion-label position="stacked" color="primary">Username</ion-label>
+            <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+              required>
+            </ion-input>
+          </ion-item>
     </ion-col>
   </ion-row>
 </form>
@@ -43,21 +42,18 @@
 
 <!-- BEGIN EDIT FORM -->
 <form #editForm="ngForm" novalidate [hidden]="!state.edit">
-  <ion-list>
-    <ion-item>
-      <ion-label position="stacked" color="primary">Username</ion-label>
-      <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-        required>
-      </ion-input>
-    </ion-item>
-  </ion-list>
-
   <ion-row>
-    <ion-col>
-      <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
+    <ion-col size="3">
+      <ion-button (click)="onSubmitHandle(editForm)" type="submit">Save</ion-button>
+      <ion-button (click)="onCancelHandle(editForm)" color="light">Cancel</ion-button>
     </ion-col>
-    <ion-col>
-      <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
+    <ion-col size="9">
+      <ion-item>
+        <ion-label position="stacked" color="primary">Username</ion-label>
+        <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
     </ion-col>
   </ion-row>
 </form>
@@ -66,7 +62,7 @@
 <!-- BEGIN ITEMS GRID -->
 <ion-grid *ngIf="state.formData.length > 0">
   <ion-row *ngFor="let item of state.formData">
-    <ion-col size="5">
+    <ion-col size="3">
       <ion-button size="small" fill="outline" (click)="onEditHandle(item)">
         Edit
       </ion-button>
@@ -74,7 +70,7 @@
         Delete
       </ion-button>
     </ion-col>
-    <ion-col size="7">
+    <ion-col size="9">
       <div item-content>
         <ion-text item-end>{{item.username}}</ion-text>
       </div>
