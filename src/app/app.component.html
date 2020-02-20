@@ -24,6 +24,15 @@
           </ion-menu-toggle>
         </ion-list>
 
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="/crud" routerLinkActive="active" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="help"></ion-icon>
+            <ion-label>
+              Crud
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
         <ion-list *ngIf="loggedIn" lines="none">
           <ion-list-header>
             Account
