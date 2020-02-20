@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MenuController, IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'crud',
@@ -9,7 +10,20 @@ import { NgForm } from '@angular/forms';
 export class CrudPage implements OnInit {
   public state:any = [];
 
-  constructor() { }
+  constructor(
+    public menu: MenuController,
+  ) { }
+
+
+  ionViewWillEnter() {
+    // disable the root left menu when entering the crud page
+    this.menu.enable(false);
+  }
+
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the crud page
+    this.menu.enable(true);
+  }
 
   ngOnInit() {
     this.getPageData();

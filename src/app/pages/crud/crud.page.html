@@ -1,77 +1,87 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Crud</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list-header>
-       <h2>Items   <ion-button (click)="onAddHandle(editForm)" type="submit" expand="block">Add</ion-button></h2>
-      </ion-list-header>
+  
+<ion-list-header>
+  <h4>Crud Items</h4>
+</ion-list-header>
 
-            <!-- BEGIN ADD FORM -->
-            <form #addForm="ngForm" novalidate [hidden]="!state.add">
-                  <ion-list>
-                    <ion-item>
-                      <ion-label position="stacked" color="primary">Username</ion-label>
-                      <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-                        required>
-                      </ion-input>
-                    </ion-item>
-                  </ion-list>
-        
-                  <ion-row>
-                      <ion-col>
-                        <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
-                      </ion-col>
-                      <ion-col>
-                        <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
-                      </ion-col>
-                    </ion-row>
-              </form>
-               <!-- END ADD FORM -->
+<ion-row [hidden]="state.add || state.edit">
+  <ion-col size="12">
+    <ion-button (click)="onAddHandle(editForm)" type="submit" expand="block">Add</ion-button>
+  </ion-col>
+</ion-row>
 
-      <!-- BEGIN EDIT FORM -->
-      <form #editForm="ngForm" novalidate [hidden]="!state.edit">
-          <ion-list>
-            <ion-item>
-              <ion-label position="stacked" color="primary">Username</ion-label>
-              <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-                required>
-              </ion-input>
-            </ion-item>
-          </ion-list>
+<!-- BEGIN ADD FORM -->
+<form #addForm="ngForm" novalidate [hidden]="!state.add">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Username</ion-label>
+      <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+        required>
+      </ion-input>
+    </ion-item>
+  </ion-list>
 
-          <ion-row>
-              <ion-col>
-                <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
-              </ion-col>
-            </ion-row>
-      </form>
-       <!-- END EDIT FORM -->
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+<!-- END ADD FORM -->
 
-       <!-- BEGIN ITEMS GRID -->
-    <ion-grid *ngIf="state.formData.length > 0">
-          <ion-row *ngFor="let item of state.formData">
-            <ion-col size="5">
-              <ion-button size="small" fill="outline" (click)="onEditHandle(item)">
-                Edit
-              </ion-button>
-              <ion-button size="small" fill="outline" color="danger" (click)="onDeleteHandle(item)">
-                  Delete
-                </ion-button>
-            </ion-col>
-            <ion-col size="7">
-              <div item-content>
-                <ion-text item-end>{{item.username}}</ion-text>
-              </div>
-            </ion-col>
-          </ion-row>
-      </ion-grid>
+<!-- BEGIN EDIT FORM -->
+<form #editForm="ngForm" novalidate [hidden]="!state.edit">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked" color="primary">Username</ion-label>
+      <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+        required>
+      </ion-input>
+    </ion-item>
+  </ion-list>
 
-      <!-- END ITEMS FORM -->
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+<!-- END EDIT FORM -->
+
+<!-- BEGIN ITEMS GRID -->
+<ion-grid *ngIf="state.formData.length > 0">
+  <ion-row *ngFor="let item of state.formData">
+    <ion-col size="5">
+      <ion-button size="small" fill="outline" (click)="onEditHandle(item)">
+        Edit
+      </ion-button>
+      <ion-button size="small" fill="outline" color="danger" (click)="onDeleteHandle(item)">
+        Delete
+      </ion-button>
+    </ion-col>
+    <ion-col size="7">
+      <div item-content>
+        <ion-text item-end>{{item.username}}</ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- END ITEMS FORM -->
 
 </ion-content>
