@@ -37,8 +37,11 @@ ionic start angular-ionic5 conference --type=angular --capacitor
 1. Your First Ionic Angular App: 
 https://ionicframework.com/docs/angular/your-first-app
 <br />
-3. Scaffolding Your App: 
+2. Scaffolding Your App: 
 https://ionicframework.com/docs/building/scaffolding?utm_source=cli&utm_medium=referral&utm_campaign=CLI
+<br />
+3. Full Stack Guru
+http://code.full-stack.guru/
 
 
 ## Git
