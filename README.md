@@ -25,7 +25,7 @@ ionic start angular-ionic5 conference --type=angular --capacitor
 
 ### 5. Add a new Angular Ionic Page named crud
 1. cd angular-ionic5<br />
-2. ionic generate page "pages/crud"ng --
+2. ionic generate page "pages/crud"
 
 ### 6. Starting Angular Ionic5 App
 1. ionic serve
