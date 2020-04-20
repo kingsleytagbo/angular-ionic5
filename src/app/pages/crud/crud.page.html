@@ -1,15 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>LMS</ion-title>
-    <ion-buttons slot="end">
-      <ion-button slot="secondary">
-        <ion-icon name="button"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>LMS</ion-title>
+        <ion-buttons slot="primary">
+          <ion-button *ngIf="loggedIn" (click)="logout()">
+            <ion-icon slot="icon" name="lock"></ion-icon>
+            <span>Logout </span>
+          </ion-button>
+          <ion-button *ngIf="!loggedIn" (click)="login()">
+              <ion-icon slot="end" name="log-out"></ion-icon>
+              <span>Login</span>
+            </ion-button>
+        </ion-buttons>
+        <!--
+        <ion-buttons slot="end">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        -->
+      </ion-toolbar>
 </ion-header>
 
 <ion-content color="light">
@@ -102,3 +109,25 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col center text-center>
+      <button>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>1.5k Likes</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <button>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <button>
+        <ion-icon name="time"></ion-icon>
+        <div>11h ago</div>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

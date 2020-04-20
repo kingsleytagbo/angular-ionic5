@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MenuController, IonSlides } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { UserData } from '../../providers/user-data';
 
 @Component({
   selector: 'crud',
@@ -9,9 +11,12 @@ import { MenuController, IonSlides } from '@ionic/angular';
 })
 export class CrudPage implements OnInit {
   public state:any = [];
+  public loggedIn = false;
 
   constructor(
     public menu: MenuController,
+    private userData: UserData,
+    private router: Router,
   ) { }
 
 
@@ -27,6 +32,38 @@ export class CrudPage implements OnInit {
 
   ngOnInit() {
     this.getPageData();
+    this.checkLoginStatus();
+  }
+
+
+  checkLoginStatus() {
+    return this.userData.isLoggedIn().then(loggedIn => {
+      return this.updateLoggedInStatus(loggedIn);
+    });
+  }
+
+  updateLoggedInStatus(loggedIn: boolean) {
+    setTimeout(() => {
+      this.loggedIn = loggedIn;
+    }, 300);
+  }
+
+  listenForLoginEvents() {
+    window.addEventListener('user:login', () => {
+      this.updateLoggedInStatus(true);
+    });
+  }
+
+  logout() {
+    this.userData.logout().then(() => {
+      return this.router.navigateByUrl('/login');
+    });
+  }
+
+  login() {
+    this.userData.logout().then(() => {
+      return this.router.navigateByUrl('/login');
+    });
   }
 
   getPageData(){
