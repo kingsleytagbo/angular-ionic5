@@ -19,6 +19,7 @@ import { UserData } from './providers/user-data';
 })
 export class AppComponent implements OnInit {
   appPages = [
+    /*
     {
       title: 'Schedule',
       url: '/app/tabs/schedule',
@@ -37,6 +38,12 @@ export class AppComponent implements OnInit {
     {
       title: 'About',
       url: '/app/tabs/about',
+      icon: 'information-circle'
+    }
+    */
+    {
+      title: 'LMS',
+      url: '/crud',
       icon: 'information-circle'
     }
   ];

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
 import { SchedulePage } from '../schedule/schedule';
+import { CrudPage } from '../crud/crud.page'
 
 
 const routes: Routes = [
@@ -54,6 +55,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('../about/about.module').then(m => m.AboutModule)
+          }
+        ]
+      },
+      {
+        path: 'crud',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../crud/crud.module').then(m => m.CrudPageModule)
           }
         ]
       },
