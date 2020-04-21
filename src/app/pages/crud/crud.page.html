@@ -22,23 +22,23 @@
 <ion-content color="light">
   <ion-grid>
     <ion-row>
-      <ion-col col-1 col-sm-0 col-md-1 col-lg-2 col-xl-2></ion-col>
-      <ion-col col-10 col-sm-12 col-md-10 col-lg-8 col-xl-8>
+      <ion-col size-sm="1"></ion-col>
+      <ion-col size-sm="10">
 
         <ion-grid>
           <ion-row>
-            <ion-col size="12">
-              <h4>Crud Items</h4>
+            <ion-col size-sm="12">
+              <h4>Manage Users</h4>
             </ion-col>
           </ion-row>
         </ion-grid>
 
         <ion-grid [hidden]="state.add || state.edit">
           <ion-row [hidden]="state.add || state.edit">
-            <ion-col size="3">
+            <ion-col size-sm="3">
               <ion-button (click)="onAddHandle(editForm)" type="submit" expand="block">Add</ion-button>
             </ion-col>
-            <ion-col size="9"></ion-col>
+            <ion-col size-sm="9"></ion-col>
           </ion-row>
         </ion-grid>
 
@@ -46,11 +46,11 @@
         <form #addForm="ngForm" novalidate [hidden]="!state.add">
           <ion-grid>
             <ion-row>
-              <ion-col size="3">
+              <ion-col size-sm="3">
                 <ion-button (click)="onSubmitHandle(editForm)" type="submit" expand="block">Save</ion-button>
                 <ion-button (click)="onCancelHandle(editForm)" color="light" expand="block">Cancel</ion-button>
               </ion-col>
-              <ion-col size="9">
+              <ion-col size-sm="9">
                 <ion-item>
                   <ion-label position="stacked" color="primary">Username</ion-label>
                   <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
@@ -67,11 +67,11 @@
         <form #editForm="ngForm" novalidate [hidden]="!state.edit">
           <ion-grid>
             <ion-row>
-              <ion-col size="3">
-                <ion-button (click)="onSubmitHandle(editForm)" type="submit">Save</ion-button>
-                <ion-button (click)="onCancelHandle(editForm)" color="light">Cancel</ion-button>
+              <ion-col size-sm="3">
+                <ion-button (click)="onSubmitHandle(editForm)" type="submit" size="small">Save</ion-button>
+                <ion-button (click)="onCancelHandle(editForm)" color="light" size="small">Cancel</ion-button>
               </ion-col>
-              <ion-col size="9">
+              <ion-col size-sm="9">
                 <ion-item>
                   <ion-label position="stacked" color="primary">Username</ion-label>
                   <ion-input [(ngModel)]="state.item.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
@@ -87,7 +87,7 @@
         <!-- BEGIN ITEMS GRID -->
         <ion-grid *ngIf="state.formData.length > 0">
           <ion-row *ngFor="let item of state.formData">
-            <ion-col size="3">
+            <ion-col size-sm="3">
               <ion-button size="small" fill="outline" (click)="onEditHandle(item)">
                 Edit
               </ion-button>
@@ -95,7 +95,7 @@
                 Delete
               </ion-button>
             </ion-col>
-            <ion-col size="9">
+            <ion-col size-sm="9">
               <div item-content>
                 <ion-text item-end>{{item.username}}</ion-text>
               </div>
@@ -105,28 +105,28 @@
 
         <!-- END ITEMS FORM -->
       </ion-col>
-      <ion-col col-1 col-sm-0 col-md-1 col-lg-2 col-xl-2></ion-col>
+      <ion-col size-sm="1"></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
 <ion-footer>
   <ion-row>
-    <ion-col center text-center>
+    <ion-col center class="ion-text-center">
       <button>
         <ion-icon name="thumbs-up"></ion-icon>
-        <div>1.5k Likes</div>
+        <div>All Rights Reserved.</div>
       </button>
     </ion-col>
-    <ion-col center text-center>
+    <ion-col center class="ion-text-center">
       <button>
         <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+        <div>Copyright, Full Stack Guru</div>
       </button>
     </ion-col>
-    <ion-col center text-center>
+    <ion-col center class="ion-text-center">
       <button>
         <ion-icon name="time"></ion-icon>
-        <div>11h ago</div>
+        <div>code.full-stack.guru</div>
       </button>
     </ion-col>
   </ion-row>
