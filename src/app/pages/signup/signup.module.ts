@@ -6,12 +6,15 @@ import { IonicModule } from '@ionic/angular';
 import { SignupPage } from './signup';
 import { SignupPageRoutingModule } from './signup-routing.module';
 
+import { FooterModule } from '../../components/footer/footer.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SignupPageRoutingModule
+    SignupPageRoutingModule,
+    FooterModule
   ],
   declarations: [
     SignupPage,
