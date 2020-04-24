@@ -54,7 +54,7 @@ This project is hosted on Git by Kingsley Tagbo at: https://github.com/kingsleyt
 4. git commit -am "starter angular ionic5 project" <br />
 5. git remote add angular-ionic5 https://github.com/kingsleytagbo/angular-ionic5
 6. git pull https://github.com/kingsleytagbo/angular-ionic5 --allow-unrelated-histories
-7. git push angular-ionic5 master
+7. git push angular-ionic5 master / git push angular-ionic5 features/security
 
 ## License
 GNU LESSER GENERAL PUBLIC LICENSE Version 3

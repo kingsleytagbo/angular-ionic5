@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
+
 @Component({
   selector: 'page-footer',
   templateUrl: 'footer.html',
@@ -7,5 +8,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class Footer{
 
-  constructor() { }
+  constructor( ) { }
+
 }

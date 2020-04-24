@@ -63,7 +63,15 @@
                 </ion-list>
 
                 <div class="ion-padding">
-                  <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Create</ion-button>
+                  <ion-row>
+                    <ion-col size-xs="6">
+                        <ion-button color="primary" (click)="onSignup(signupForm)" type="submit" expand="block">SignUp</ion-button>
+                    </ion-col>
+                    <ion-col size-xs="6">
+                        <ion-button color="light" (click)="onLoginClick()" type="submit" expand="block">SignIn</ion-button>
+                    </ion-col>
+                  </ion-row>
+
                 </div>
               </form>
             </ion-col>
@@ -77,27 +85,3 @@
   </ion-grid>
 </ion-content>
 <page-footer></page-footer>
-<!--
-<ion-footer>
-<ion-row>
-    <ion-col center class="ion-text-center">
-      <button>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>All Rights Reserved.</div>
-      </button>
-    </ion-col>
-    <ion-col center class="ion-text-center">
-      <button>
-        <ion-icon name="text"></ion-icon>
-        <div>Copyright, Full Stack Guru</div>
-      </button>
-    </ion-col>
-    <ion-col center class="ion-text-center">
-      <button>
-        <ion-icon name="time"></ion-icon>
-        <div>code.full-stack.guru</div>
-      </button>
-    </ion-col>
-  </ion-row>
-</ion-footer>
--->
