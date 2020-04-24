@@ -1,23 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>LMS</ion-title>
-    <ion-buttons slot="primary">
-      <ion-button *ngIf="loggedIn" (click)="logout()">
-        <ion-icon slot="icon" name="lock"></ion-icon>
-        <span>Logout </span>
-      </ion-button>
-      <ion-button *ngIf="!loggedIn" (click)="login()">
-        <ion-icon slot="end" name="log-out"></ion-icon>
-        <span>Login</span>
-      </ion-button>
-    </ion-buttons>
-    <!--
-      <ion-buttons slot="end">
-        <ion-menu-button autoHide="false"></ion-menu-button>
-      </ion-buttons>
-      -->
-  </ion-toolbar>
-</ion-header>
+<page-header></page-header>
 
 <ion-content color="light">
   <ion-grid>
