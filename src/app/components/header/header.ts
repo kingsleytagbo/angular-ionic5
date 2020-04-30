@@ -10,4 +10,12 @@ export class Header{
 
   constructor( ) { }
 
+  login(){
+
+  }
+
+  logout (){
+    
+  }
+
 }

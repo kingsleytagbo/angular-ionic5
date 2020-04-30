@@ -7,6 +7,8 @@ import { SignupPage } from './signup';
 import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { FooterModule } from '../../components/footer/footer.module';
+import { HeaderModule } from '../../components/header/header.module';
+
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import { FooterModule } from '../../components/footer/footer.module';
     FormsModule,
     IonicModule,
     SignupPageRoutingModule,
-    FooterModule
+    FooterModule,
+    HeaderModule
   ],
   declarations: [
     SignupPage,

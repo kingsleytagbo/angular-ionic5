@@ -5,7 +5,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login';
 import { LoginPageRoutingModule } from './login-routing.module';
+
 import { FooterModule } from '../../components/footer/footer.module';
+import { HeaderModule } from '../../components/header/header.module';
 
 @NgModule({
   imports: [
@@ -13,7 +15,8 @@ import { FooterModule } from '../../components/footer/footer.module';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    FooterModule
+    FooterModule,
+    HeaderModule
   ],
   declarations: [
     LoginPage,

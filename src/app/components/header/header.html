@@ -1,22 +1,20 @@
-<footer>
-    <ion-row>
-        <ion-col center class="ion-text-center">
-            <button>
-                <ion-icon name="thumbs-up"></ion-icon>
-                <div>All Rights Reserved.</div>
-            </button>
-        </ion-col>
-        <ion-col center class="ion-text-center">
-            <button>
-                <ion-icon name="text"></ion-icon>
-                <div>Copyright, Full Stack Guru</div>
-            </button>
-        </ion-col>
-        <ion-col center class="ion-text-center">
-            <button>
-                <ion-icon name="time"></ion-icon>
-                <div>code.full-stack.guru</div>
-            </button>
-        </ion-col>
-    </ion-row>
-</footer>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>LMS</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button *ngIf="loggedIn" (click)="logout()">
+                <ion-icon slot="icon" name="lock"></ion-icon>
+                <span>Logout </span>
+            </ion-button>
+            <ion-button *ngIf="!loggedIn" (click)="login()">
+                <ion-icon slot="end" name="log-out"></ion-icon>
+                <span>Login</span>
+            </ion-button>
+        </ion-buttons>
+        <!--
+            <ion-buttons slot="end">
+              <ion-menu-button autoHide="false"></ion-menu-button>
+            </ion-buttons>
+            -->
+    </ion-toolbar>
+</ion-header>
