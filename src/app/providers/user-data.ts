@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Authentication } from '../models/authentication';
-import { Observable, from } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class UserData {
     }
   }
 
-  login(login:Authentication): Promise<any> {
+  login(login: Authentication): Promise<any> {
     const username = login.username;
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);
@@ -39,14 +39,19 @@ export class UserData {
     });
   }
 
-  loginObservable(login:Authentication): Observable<any> {
-    console.log({login: login});
-    const username = login.username;
-     let promiseResult = this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
-      this.setUsername(username);
-      return window.dispatchEvent(new CustomEvent('user:login'));
-    });
-    return from( promiseResult);
+  loginObservable(login: Authentication): Observable<any> {
+    console.log({ login: login });
+    let authenticated = false;
+    if ( (login.username && login.username.indexOf('@') > -1) && 
+          (login.password && login.password.length > 6) ) {
+      const username = login.username;
+      authenticated = true;
+      const promiseResult = this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
+        this.setUsername(username);
+        return window.dispatchEvent(new CustomEvent('user:login'));
+      });
+    }
+    return of(authenticated);
   }
   signup(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
