@@ -4,9 +4,12 @@ import { Action } from '@ngrx/store';
 import * as AuthenticationActions from './authentication-action';
 import { UserData } from '../../providers/user-data';
 import { Observable, of as observableof, from } from 'rxjs';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { switchMap, map } from 'rxjs/operators';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { ActionTypes } from './authentication-action';
+import { mergeMap } from 'rxjs/internal/operators/mergeMap';
+import { Authentication } from '../../models/authentication';
+import { switchAll } from 'rxjs/internal/operators/switchAll';
 
 @Injectable()
 export class AuthenticationStoreEffects {
@@ -30,19 +33,46 @@ export class AuthenticationStoreEffects {
     )
     */
 
-    @Effect()
-    searchArticleById$: Observable<Action> = this.actions$.pipe(
-        ofType<AuthenticationActions.GetRequestAction>(ActionTypes.GET_REQUEST),
-        switchMap((action) => 
-        {
-            return from (this.userService.login(action.payload))
-         } ,
-        map(action => action.payload)
-        .switchMap(id =>
-            from(this.userService.login(""))
-                .map(res => new fromActions.GetByIdSuccessAction(res))
-        ); 
+    @Effect() postLogin2$ = this.actions$.pipe(
+        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
+        map(action => action.payload),
+        switchMap(payload => {
+            console.log({ payload: payload});
+            return this.userService.loginObservable(payload)
+                .pipe(
+                    
+
+                );
+        })
 
     );
+
+    /*
+    @Effect()
+    postLogin$: Observable<Action> = this.actions$.pipe(
+        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
+        map((action: AuthenticationActions.GetRequestAction) => action.payload),
+      switchMap(payload:Authentication => {
+          this.userService.loginObservable(payload)
+      })
+    );
+
+    @Effect()
+    postLogin1$: Observable<Action> = this.actions$.pipe(
+        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
+        switchMap(action => {
+            this.userService.loginObservable(action.payload)
+                .pipe(
+                map((data: any) => {
+                    return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+                }
+                ),
+                catchError((err: any, caught: any) => {
+                    return observableof(new AuthenticationActions.GetFailureAction(err))
+                )
+                )
+        ),
+    );
+    */
 
 }

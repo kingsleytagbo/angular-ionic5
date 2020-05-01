@@ -9,7 +9,7 @@ export enum ActionTypes{
 
 export class GetRequestAction implements Action{
     readonly type = ActionTypes.GET_REQUEST;
-    constructor(public payload: Authentication){}
+    constructor(public payload: any){}
 }
 
 export class GetFailureAction implements Action{

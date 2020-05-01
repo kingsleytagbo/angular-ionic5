@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Authentication } from '../models/authentication';
+import { Observable, from } from 'rxjs';
 
 
 @Injectable({
@@ -38,6 +39,14 @@ export class UserData {
     });
   }
 
+  loginObservable(login:Authentication): Observable<any> {
+    const username = login.username;
+     let promiseResult = this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
+      this.setUsername(username);
+      return window.dispatchEvent(new CustomEvent('user:login'));
+    });
+    return from( promiseResult);
+  }
   signup(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);
