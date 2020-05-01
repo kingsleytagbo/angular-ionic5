@@ -30,8 +30,8 @@ export class LoginPage {
 
     if (form.valid) {
       this.store.dispatch(new AuthenticationActions.GetRequestAction(this.login));
-      this.userData.login(this.login);
-      this.router.navigateByUrl('/crud');
+      //this.userData.login(this.login);
+      //this.router.navigateByUrl('/crud');
     }
   }
 
