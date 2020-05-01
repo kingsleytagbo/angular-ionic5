@@ -8,6 +8,7 @@ import { RootStoreState } from '../../state/root-store-state';
 import * as AuthenticationActions from '../../state/authentication/authentication-action';
 
 import { Authentication } from '../../models/authentication';
+import { log } from 'util';
 
 @Component({
   selector: 'page-login',
@@ -28,8 +29,8 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login(this.login.username, this.log);
-      this.store.dispatch(new AuthenticationActions.GetRequestAction());
+      this.userData.login(this.login);
+      this.store.dispatch(new AuthenticationActions.GetRequestAction(this.login));
       this.router.navigateByUrl('/crud');
     }
   }

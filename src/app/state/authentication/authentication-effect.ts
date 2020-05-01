@@ -35,10 +35,10 @@ export class AuthenticationStoreEffects {
 
     @Effect() postLogin2$ = this.actions$.pipe(
         ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
-        map(action => action.payload),
-        switchMap(payload => {
-            console.log({ payload: payload});
-            return this.userService.loginObservable(payload)
+        map(action => action),
+        switchMap(action => {
+            console.log({ action: action, payload: action.payload});
+            return this.userService.loginObservable(action.payload)
                 .pipe(
                     
 
