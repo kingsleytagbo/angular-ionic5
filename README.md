@@ -56,6 +56,10 @@ This project is hosted on Git by Kingsley Tagbo at: https://github.com/kingsleyt
 6. git pull https://github.com/kingsleytagbo/angular-ionic5 --allow-unrelated-histories
 7. git push angular-ionic5 master / git push angular-ionic5 features/security
 
+## NgRx
+1. npm install @ngrx/schematics --save-dev 
+2. npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools --save
+
 ## License
 GNU LESSER GENERAL PUBLIC LICENSE Version 3
 https://github.com/kingsleytagbo/react-typescript/blob/master/LICENSE

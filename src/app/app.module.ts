@@ -15,6 +15,11 @@ import { FormsModule } from '@angular/forms';
 import { HeaderModule } from '../app/components/header/header.module';
 import { HttpErrorInterceptor } from '../app/services/HttpErrorInterceptor';
 
+// Ngrx
+import { StoreModule, ActionReducerMap } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtools } from '@ngrx/store-devtools';
+
 @NgModule({
   imports: [
     BrowserModule,
