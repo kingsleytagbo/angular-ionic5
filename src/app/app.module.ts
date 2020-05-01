@@ -18,7 +18,12 @@ import { HttpErrorInterceptor } from '../app/services/HttpErrorInterceptor';
 // Ngrx
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtools } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import * as AuthenticationReducers from './state/authentication/authentication-reducer';
+
+export const reducers: ActionReducerMap<any> = {
+  Authentication: AuthenticationReducers.AuthenticationStoreReducer
+};
 
 @NgModule({
   imports: [
@@ -31,8 +36,8 @@ import { StoreDevtools } from '@ngrx/store-devtools';
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),
-
-    HeaderModule
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({maxAge: 2})
   ],
   declarations: [AppComponent],
   providers: [

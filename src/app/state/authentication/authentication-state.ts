@@ -1,13 +1,13 @@
 import { Authentication } from '../../models/authentication';
 
-export interface State{
+export interface AuthenticationState{
     actionType:string | null;
     isLoading:boolean;
     data: any;
     error:any;
 };
 
-export const initialState:State = {
+export const initialAuthenticationState:AuthenticationState = {
     actionType:null,
     isLoading: false,
     data:null,
