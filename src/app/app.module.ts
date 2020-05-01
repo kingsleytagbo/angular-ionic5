@@ -20,6 +20,8 @@ import { StoreModule, ActionReducerMap } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import * as AuthenticationReducers from './state/authentication/authentication-reducer';
+import { RootStoreEffects } from './state/root-store-effect';
+
 
 export const reducers: ActionReducerMap<any> = {
   Authentication: AuthenticationReducers.AuthenticationStoreReducer
@@ -37,7 +39,8 @@ export const reducers: ActionReducerMap<any> = {
       enabled: environment.production
     }),
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument({maxAge: 2})
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    EffectsModule.forRoot(RootStoreEffects)
   ],
   declarations: [AppComponent],
   providers: [

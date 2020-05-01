@@ -10,13 +10,17 @@ import { ActionTypes } from './authentication-action';
 import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 import { Authentication } from '../../models/authentication';
 import { switchAll } from 'rxjs/internal/operators/switchAll';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationStoreEffects {
     constructor(
         private actions$: Actions,
-        private userService: UserData
+        private userService: UserData,
+        private http: HttpClient
     ) { }
+
+
 
     postLogin2$ = this.actions$.pipe(
         ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
@@ -38,7 +42,8 @@ export class AuthenticationStoreEffects {
     );
 
     @Effect()
-    getCustomers = this.actions$.pipe(
+    getCustomers = this.actions$
+    .pipe(
       // filter out the actions, except `[Customers Page] Get`
       ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
       switchMap((action) =>
@@ -50,10 +55,18 @@ export class AuthenticationStoreEffects {
             return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
             },
           // return a Failed action when something went wrong
-          catchError(error => observableof(new AuthenticationActions.GetFailureAction(error))),
+          catchError(error => {
+              console.log({error: error});
+              return observableof(new AuthenticationActions.GetFailureAction(error))
+            }),
         ),
       ),
     ));
+
+    getData(value: Authentication): Observable<Authentication> {
+        console.log({serviceccalled: value});
+        return this.http.get<Authentication>('/api/data');
+      }
 
 
     /*
