@@ -40,6 +40,7 @@ export class UserData {
   }
 
   loginObservable(login:Authentication): Observable<any> {
+    console.log({login: login});
     const username = login.username;
      let promiseResult = this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);

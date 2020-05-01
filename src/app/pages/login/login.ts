@@ -29,8 +29,8 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login(this.login);
       this.store.dispatch(new AuthenticationActions.GetRequestAction(this.login));
+      this.userData.login(this.login);
       this.router.navigateByUrl('/crud');
     }
   }
