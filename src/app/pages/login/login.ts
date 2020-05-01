@@ -1,12 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { UserData } from '../../providers/user-data';
-
 import { UserOptions } from '../../interfaces/user-options';
+import { Store, ActionsSubject }  from '@ngrx/store';
+import { RootStoreState } from '../../state/root-store-state';
+import * as AuthenticationActions from '../../state/authentication/authentication-action';
 
-
+import { Authentication } from '../../models/authentication';
 
 @Component({
   selector: 'page-login',
@@ -14,19 +15,21 @@ import { UserOptions } from '../../interfaces/user-options';
   styleUrls: ['./login.scss'],
 })
 export class LoginPage {
-  login: UserOptions = { username: '', password: '' };
+  login: Authentication = { username: '', password: '' };
   submitted = false;
 
   constructor(
     public userData: UserData,
-    public router: Router
+    public router: Router,
+    private store: Store<RootStoreState>
   ) { }
 
   onLogin(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login(this.login.username);
+      this.userData.login(this.login.username, this.log);
+      this.store.dispatch(new AuthenticationActions.GetRequestAction());
       this.router.navigateByUrl('/crud');
     }
   }

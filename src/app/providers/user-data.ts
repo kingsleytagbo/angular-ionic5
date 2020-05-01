@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Authentication } from '../models/authentication';
 
 
 @Injectable({
@@ -29,7 +30,8 @@ export class UserData {
     }
   }
 
-  login(username: string): Promise<any> {
+  login(login:Authentication): Promise<any> {
+    const username = login.username;
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);
       return window.dispatchEvent(new CustomEvent('user:login'));

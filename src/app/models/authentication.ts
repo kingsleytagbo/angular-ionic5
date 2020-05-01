@@ -1,6 +1,8 @@
-export class Authentication{
-    isAuthenticated:boolean;
-    constructor(isAuthenticated?:boolean){
-        this.isAuthenticated = isAuthenticated ? isAuthenticated : false;
+export  class Authentication{
+    username: string;
+    password: string;
+    constructor(username: string, password: string){
+        this.username = username;
+        this.password = password;
     }
 }

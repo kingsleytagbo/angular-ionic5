@@ -8,13 +8,16 @@ export enum ActionTypes{
 };
 
 export class GetRequestAction implements Action{
-    readonly type = ActionTypes.GET_REQUEST
+    readonly type = ActionTypes.GET_REQUEST;
+    constructor(public payload: Authentication){}
 }
 
 export class GetFailureAction implements Action{
-    readonly type = ActionTypes.GET_FAILURE
+    readonly type = ActionTypes.GET_FAILURE;
+    constructor(public payload: any){}
 }
 
 export class GetSuccessAction implements Action{
-    readonly type = ActionTypes.GET_SUCCESS
+    readonly type = ActionTypes.GET_SUCCESS;
+    constructor(public payload: any){}
 }
