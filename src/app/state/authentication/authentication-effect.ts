@@ -18,66 +18,62 @@ export class AuthenticationStoreEffects {
         private userService: UserData
     ) { }
 
-    /*
-    @Effect()
-    LoginEffect$: Observable<Action> = this.actions$.pipe(
+    postLogin2$ = this.actions$.pipe(
         ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
-        switchMap(action =>
-            from(this.userService.login("", "").pipe(
-                map{
-                    data => return new AuthenticationActions.GetSuccessAction({ data: !data ? actions.payload.data : data });
-                    }),
-                catchError()
-            )
-        )
-    )
-    */
-
-    @Effect() postLogin2$ = this.actions$.pipe(
-        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
-        /*map((action: AuthenticationActions.GetRequestAction) => action.payload),*/
         switchMap(action => {
             console.log({ SwitchMap: { action: action, payload: action.payload } });
-            return this.userService.loginObservable(action.payload)
-        }),
-        map(result => {
-            console.log({ map: { result: result } });
-            return new AuthenticationActions.GetSuccessAction(result);
-        },
-            catchError((err, caught) => {
-                console.log({ catchError: { err: err, caught: caught } });
-                return observableof(new AuthenticationActions.GetFailureAction(err))
-            })
-        )
+            return this.userService.loginObservable(action.payload).pipe(
+                map((data: any) => {
+                    console.log({ map: { data:data, action:action, payload: action.payload } });
+                    return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+                },                                          
+                catchError((err: any, caught: any) => {
+                        console.log({ map: { err: err } });
+                        return observableof(new AuthenticationActions.GetFailureAction(err));
+                    })
+                )
 
+            )
+        })
     );
+
+    @Effect()
+    getCustomers = this.actions$.pipe(
+      // filter out the actions, except `[Customers Page] Get`
+      ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
+      switchMap((action) =>
+        // call the service
+        this.userService.loginObservable(action.payload).pipe(
+          // return a Success action when everything went OK
+          map(data => {
+            console.log({ map: { data:data, action:action, payload: action.payload } });
+            return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+            },
+          // return a Failed action when something went wrong
+          catchError(error => observableof(new AuthenticationActions.GetFailureAction(error))),
+        ),
+      ),
+    ));
+
 
     /*
-    @Effect()
-    postLogin$: Observable<Action> = this.actions$.pipe(
-        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
-        map((action: AuthenticationActions.GetRequestAction) => action.payload),
-      switchMap(payload:Authentication => {
-          this.userService.loginObservable(payload)
-      })
-    );
-
-    @Effect()
-    postLogin1$: Observable<Action> = this.actions$.pipe(
-        ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
-        switchMap(action => {
-            this.userService.loginObservable(action.payload)
-                .pipe(
-                map((data: any) => {
-                    return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
-                }
-                ),
-                catchError((err: any, caught: any) => {
-                    return observableof(new AuthenticationActions.GetFailureAction(err))
+            @Effect() postLogin2$ = this.actions$.pipe(
+                ofType<AuthenticationActions.GetRequestAction>(AuthenticationActions.ActionTypes.GET_REQUEST),
+                map((action: AuthenticationActions.GetRequestAction) => action.payload), 
+                switchMap(action => 
+                    console.log({ SwitchMap: { action: action, payload: action.payload } });
+                    return this.userService.loginObservable(action.payload).pipe(
+                        map((data: any) => 
+                            {
+                                return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+                            },
+                            catchError((err: any, caught: any) => {
+                                    return observableof(new AuthenticationActions.GetFailureAction(err));
+                                })
+                        )
+        
                 )
-                )
-        ),
-    );
     */
+
 
 }

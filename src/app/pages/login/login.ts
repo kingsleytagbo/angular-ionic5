@@ -16,7 +16,7 @@ import { log } from 'util';
   styleUrls: ['./login.scss'],
 })
 export class LoginPage {
-  login: Authentication = { username: '', password: '' };
+  login: Authentication = new Authentication('',  '' );
   submitted = false;
 
   constructor(
