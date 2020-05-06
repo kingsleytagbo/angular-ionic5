@@ -53,8 +53,13 @@ export class AuthenticationStoreEffects {
         this.userService.loginObservable(action.payload).pipe(
           // return a Success action when everything went OK
           map(data => {
-            console.log({ map: { data:data, action:action, payload: action.payload } });
-            return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+            // console.log({ map: { data:data, action:action, payload: action.payload } });
+                  if (data === true) {
+                      return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
+                  }
+                  else{
+                    return new AuthenticationActions.GetFailureAction(false);
+                  }
             },
           // return a Failed action when something went wrong
           catchError(error => {
@@ -62,10 +67,12 @@ export class AuthenticationStoreEffects {
               return observableof(new AuthenticationActions.GetFailureAction(error))
             }),
         ),
-        tap((data) => 
+        tap((action) => 
             { 
-                console.log({tap:data})
-                //this.router.navigate(['/']) 
+            console.log({ tap: action });
+            if (action.payload.data === true) {
+                this.router.navigateByUrl('/');
+            }
         }),
       ),
     ));

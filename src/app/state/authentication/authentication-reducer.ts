@@ -31,7 +31,7 @@ export function AuthenticationStoreReducer(state = initialAuthenticationState, a
                 actionType: AuthenticationActions.ActionTypes.GET_FAILURE,
                 isLoading: false,
                 error: action.payload,
-                data:null
+                data:action.payload
             };
         }
 
