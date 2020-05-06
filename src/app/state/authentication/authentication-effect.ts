@@ -71,7 +71,7 @@ export class AuthenticationStoreEffects {
             { 
             console.log({ tap: action });
             if (action.payload.data === true) {
-                this.router.navigateByUrl('/');
+                this.router.navigateByUrl('/lms');
             }
         }),
       ),
