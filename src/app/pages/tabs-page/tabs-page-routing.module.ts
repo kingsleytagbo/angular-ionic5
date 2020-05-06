@@ -17,12 +17,14 @@ const routes: Routes = [
             path: '',
             component: SchedulePage,
           },
+           /*
           {
             path: 'session/:sessionId',
             loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           }
         ]
       },
+      
       {
         path: 'speakers',
         children: [
@@ -40,6 +42,7 @@ const routes: Routes = [
           }
         ]
       },
+      
       {
         path: 'map',
         children: [
@@ -48,7 +51,8 @@ const routes: Routes = [
             loadChildren: () => import('../map/map.module').then(m => m.MapModule)
           }
         ]
-      },
+      }
+      */
       {
         path: 'about',
         children: [
@@ -66,12 +70,14 @@ const routes: Routes = [
             loadChildren: () => import('../crud/crud.module').then(m => m.CrudPageModule)
           }
         ]
-      },
+      }
+      /*,
       {
         path: '',
         redirectTo: '/app/tabs/schedule',
         pathMatch: 'full'
       }
+      */
     ]
   }
 ];
