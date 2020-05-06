@@ -6,6 +6,7 @@ import { UserOptions } from '../../interfaces/user-options';
 import { Store, ActionsSubject } from '@ngrx/store';
 import { RootStoreState } from '../../state/root-store-state';
 import * as AuthenticationActions from '../../state/authentication/authentication-action';
+import { MenuController } from '@ionic/angular';
 
 import { Authentication } from '../../models/authentication';
 import { Subscription } from 'rxjs';
@@ -29,7 +30,8 @@ export class LoginPage {
     public router: Router,
     private store: Store<RootStoreState>,
     private loginActionsSubject: ActionsSubject,
-    public alert: AlertController
+    public alert: AlertController,
+    public menu: MenuController
   ) {
     this.loginSubscription = this.loginActionsSubject.pipe(
       ofType<AuthenticationActions.GetFailureAction>(AuthenticationActions.ActionTypes.GET_FAILURE)
@@ -41,6 +43,11 @@ export class LoginPage {
 
   ngOnDestroy() {
     this.loginSubscription.unsubscribe();
+  }
+
+  ionViewWillEnter() {
+    // disable the root left menu when entering this page
+    this.menu.enable(false);
   }
 
   async presentAlert() {

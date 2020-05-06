@@ -26,8 +26,8 @@ export class CrudPage implements OnInit {
   }
 
   ionViewDidLeave() {
-    // enable the root left menu when leaving the crud page
-    this.menu.enable(true);
+    // disable the root left menu when leaving the crud page
+    this.menu.enable(false);
   }
 
   ngOnInit() {
@@ -61,7 +61,9 @@ export class CrudPage implements OnInit {
   }
 
   login() {
+    console.log('CRUD ... login ');
     this.userData.logout().then(() => {
+      console.log('CRUD ... redirect ');
       return this.router.navigateByUrl('/login');
     });
   }
