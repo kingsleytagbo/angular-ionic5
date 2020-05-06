@@ -25,12 +25,12 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.router.navigateByUrl('/app/pages/login');
+      this.router.navigateByUrl('/login');
     }
   }
 
   onLoginClick() {
-    this.router.navigateByUrl('/app/pages/login');
+    this.router.navigateByUrl('/login');
   }
   
 }
