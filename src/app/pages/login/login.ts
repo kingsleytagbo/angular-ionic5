@@ -10,6 +10,7 @@ import * as AuthenticationActions from '../../state/authentication/authenticatio
 import { Authentication } from '../../models/authentication';
 import { Subscription } from 'rxjs';
 import { ofType } from "@ngrx/effects";
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -20,23 +21,37 @@ import { ofType } from "@ngrx/effects";
 export class LoginPage {
   login: UserOptions = { username: '', password: '' };
   submitted = false;
+  isValid = true;
   loginSubscription = new Subscription();
 
   constructor(
     public userData: UserData,
     public router: Router,
     private store: Store<RootStoreState>,
-    private loginActionsSubject: ActionsSubject
+    private loginActionsSubject: ActionsSubject,
+    public alert: AlertController
   ) {
     this.loginSubscription = this.loginActionsSubject.pipe(
       ofType<AuthenticationActions.GetFailureAction>(AuthenticationActions.ActionTypes.GET_FAILURE)
     ).subscribe(data => {
       console.log({ 'login failure changes': data });
+      this.presentAlert();
     });
   }
 
   ngOnDestroy() {
     this.loginSubscription.unsubscribe();
+  }
+
+  async presentAlert() {
+    const alert = await this.alert.create({
+      header: 'Login',
+      subHeader: 'Error',
+      message: 'Your username or password is incorrect!',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   onLogin(form: NgForm) {
