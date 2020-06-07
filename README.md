@@ -1,48 +1,49 @@
-#Angular 9 Upgrade
+# How To Build Your Website in Angular (9) and Ionic (5)
+
+## Angular 9 Upgrade
 ### Check Angular Version
-ng --version
+ng --version  
 ### Upgrade Angular Version
-npm i -g @ionic/cli
-install -g @angular/cli --save
-npm install @ionic/angular@latest --save
-ng update @angular/core@latest @angular/cli@latest --allow-dirty
+npm i -g @ionic/cli  
+install -g @angular/cli --save  
+npm install @ionic/angular@latest --save  
+ng update @angular/core@latest @angular/cli@latest --allow-dirty  
 
 ##Upgrade Errors
-run ionic build 
+run ionic build   
 #Change Config Files for Upgrade
-angular.json - change aot : true to "aot": false
-- tsconfig.json - change from to "target": "es2015 to "target": "es5"
+angular.json - change aot : true to "aot": false  
+- tsconfig.json - change from to "target": "es2015 to "target": "es5"  
 
 ## Build Information (Angular 9)
-ionic --version 6.10.0
+ionic --version 6.10.0  
 <br />
 ### ng --version 
 
-ngular CLI: 9.1.7
-Node: 12.16.1
-OS: darwin x64
+ngular CLI: 9.1.7  
+Node: 12.16.1  
+OS: darwin x64  
 
-Angular: 9.1.9
-... common, compiler, compiler-cli, core, forms
-... language-service, platform-browser, platform-browser-dynamic
-... router, service-worker
-Ivy Workspace: Yes
+Angular: 9.1.9  
+... common, compiler, compiler-cli, core, forms  
+... language-service, platform-browser, platform-browser-dynamic  
+... router, service-worker  
+Ivy Workspace: Yes  
 
 -----------------------------------------------------------
-@angular-devkit/architect         0.803.26
-@angular-devkit/build-angular     0.901.7
-@angular-devkit/build-optimizer   0.901.7
-@angular-devkit/build-webpack     0.901.7
-@angular-devkit/core              9.1.7
-@angular-devkit/schematics        9.1.7
-@angular/cli                      9.1.7
-@ngtools/webpack                  9.1.7
-@schematics/angular               8.3.26
-@schematics/update                0.901.7
-rxjs                              6.5.5
-typescript                        3.8.3
-webpack                           4.42.0
-
+@angular-devkit/architect         0.803.26  
+@angular-devkit/build-angular     0.901.7  
+@angular-devkit/build-optimizer   0.901.7  
+@angular-devkit/build-webpack     0.901.7  
+@angular-devkit/core              9.1.7  
+@angular-devkit/schematics        9.1.7  
+@angular/cli                      9.1.7  
+@ngtools/webpack                  9.1.7  
+@schematics/angular               8.3.26  
+@schematics/update                0.901.7  
+rxjs                              6.5.5  
+typescript                        3.8.3  
+webpack                           4.42.0  
 
 
 ## Build Information (Angular 8)
