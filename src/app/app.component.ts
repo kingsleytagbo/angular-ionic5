@@ -47,11 +47,11 @@ export class AppComponent implements OnInit {
     this.listenForLoginEvents();
 
     this.swUpdate.available.subscribe(async res => {
+
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
-        showCloseButton: true,
         position: 'bottom',
-        closeButtonText: `Reload`
+        duration: 2000
       });
 
       await toast.present();

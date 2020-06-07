@@ -23,6 +23,7 @@ export class LoginPage {
   login: UserOptions = { username: '', password: '' };
   submitted = false;
   isValid = true;
+  public loggedIn = false;
   loginSubscription = new Subscription();
 
   constructor(

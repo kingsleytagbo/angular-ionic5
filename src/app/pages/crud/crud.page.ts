@@ -115,7 +115,7 @@ export class CrudPage implements OnInit {
     }
   }
 
-  onAddHandle(){
+  onAddHandle(form:any){
     this.state.item = {id: '', username: ''};
     this.state.add = true;
   }
