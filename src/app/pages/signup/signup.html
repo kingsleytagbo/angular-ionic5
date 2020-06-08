@@ -1,69 +1,80 @@
 <page-header></page-header>
 
 <ion-content color="light">
-  <ion-grid>
-    <ion-row>
-      <ion-col size-xs="1" size-sm="2" size-md="3"></ion-col>
-      <ion-col size-xs="10" size-sm="8" size-md="6">
 
-        <ion-grid>
-          <ion-row>
-            <ion-col size-xs="12">
-              <h2>Signup</h2>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+  <ion-row class="ion-margin-top">
+    <ion-col size-xs="1" size-sm="2" size-md="3"></ion-col>
+    <ion-col size-xs="10" size-sm="8" size-md="6">
 
-        <!-- BEGIN ITEMS GRID -->
-        <ion-grid>
-          <ion-row>
-            <ion-col size-xs="12">
-              <form #signupForm="ngForm" novalidate>
-                <ion-list lines="none">
-                  <ion-item>
-                    <ion-label position="stacked" color="primary">Username</ion-label>
-                    <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
-                    </ion-input>
-                  </ion-item>
-                  <ion-text color="danger">
-                    <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
-                      Username is required
-                    </p>
-                  </ion-text>
+      <ion-card class="ion-margin-top">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-row>
+              <ion-col size-xs="12">
+                  <h1 class="ion-text-capitalize ion-text-center">
+                      <ion-icon name="apps"></ion-icon>
+                     Signup
+                    </h1>
+              </ion-col>
+            </ion-row>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- BEGIN ITEMS FORM -->
 
-                  <ion-item>
-                    <ion-label position="stacked" color="primary">Password</ion-label>
-                    <ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
-                    </ion-input>
-                  </ion-item>
-                  <ion-text color="danger">
-                    <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
-                      Password is required
-                    </p>
-                  </ion-text>
-                </ion-list>
 
-                <div class="ion-padding">
-                  <ion-row>
-                    <ion-col size-xs="6">
+            <!-- BEGIN ITEMS GRID -->
+            <ion-row>
+              <ion-col size-xs="12">
+                <form #signupForm="ngForm" novalidate>
+                  <ion-list lines="none">
+                    <ion-item>
+                      <ion-label position="stacked" color="primary">Username</ion-label>
+                      <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
+                      </ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+                        Username is required
+                      </p>
+                    </ion-text>
+
+                    <ion-item>
+                      <ion-label position="stacked" color="primary">Password</ion-label>
+                      <ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
+                      </ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+                        Password is required
+                      </p>
+                    </ion-text>
+                  </ion-list>
+
+                  <div class="ion-padding">
+                    <ion-row>
+                      <ion-col size-xs="6">
                         <ion-button color="primary" (click)="onSignup(signupForm)" type="submit" expand="block">SignUp</ion-button>
-                    </ion-col>
-                    <ion-col size-xs="6">
+                      </ion-col>
+                      <ion-col size-xs="6">
                         <ion-button color="light" (click)="onLoginClick()" type="submit" expand="block">Login</ion-button>
-                    </ion-col>
-                  </ion-row>
+                      </ion-col>
+                    </ion-row>
 
-                </div>
-              </form>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+                  </div>
+                </form>
+              </ion-col>
+            </ion-row>
+          <!-- END ITEMS GRID -->
 
-        <!-- END ITEMS FORM -->
-      </ion-col>
-      <ion-col size-xs="1" size-sm="2" size-md="3"></ion-col>
-    </ion-row>
-  </ion-grid>
+           <!-- END ITEMS FORM -->
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+    <ion-col size-xs="1" size-sm="2" size-md="3"></ion-col>
+  </ion-row>
+
 </ion-content>
 
 <page-footer></page-footer>

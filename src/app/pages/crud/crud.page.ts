@@ -54,20 +54,6 @@ export class CrudPage implements OnInit {
     });
   }
 
-  logout() {
-    this.userData.logout().then(() => {
-      return this.router.navigateByUrl('/login');
-    });
-  }
-
-  login() {
-    console.log('CRUD ... login ');
-    this.userData.logout().then(() => {
-      console.log('CRUD ... redirect ');
-      return this.router.navigateByUrl('/login');
-    });
-  }
-
   getPageData(){
     this.state = {
       edit: false,
@@ -79,21 +65,25 @@ export class CrudPage implements OnInit {
       formData: [{
         id: '1',
         username: 'Johhny Rocket',
+        emailaddress: "",
         done: false,
         date: new Date()
       }, {
         id: '2',
         username: 'Jekyll Hyde',
+        emailaddress: "",
         done: false,
         date: new Date()
       }, {
         id: '3',
         username: 'Storm Trooper',
+        emailaddress: "",
         done: false,
         date: new Date()
       }, {
         id: '4',
         username: 'Lennox Lewis',
+        emailaddress: "",
         done: false,
         date: new Date()
       }]

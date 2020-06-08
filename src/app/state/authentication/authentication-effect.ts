@@ -69,17 +69,12 @@ export class AuthenticationStoreEffects {
         ),
         tap((action) => 
             { 
-            console.log({ tap: action });
+
             if (action.payload.data === true) {
                 this.router.navigateByUrl('/lms');
             }
         }),
       ),
     ));
-
-    testServiceCall(value: Authentication): Observable<Authentication> {
-        console.log({serviceccalled: value});
-        return this.http.get<Authentication>('/api/data');
-      }
 
 }
