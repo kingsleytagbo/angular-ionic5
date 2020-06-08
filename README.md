@@ -4,6 +4,7 @@
 
 ### Login Page
 ![Login](src/assets/img/login-angular-ionic.png?raw=true "Login Page")
+![Login Validation](src/assets/img/login-validation.png?raw=true "Login Page")
 
 ## Angular 9 Upgrade
 ### Check Angular Version
