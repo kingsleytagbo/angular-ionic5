@@ -9,9 +9,9 @@ install -g @angular/cli --save  <br />
 npm install @ionic/angular@latest --save  <br />
 ng update @angular/core@latest @angular/cli@latest --allow-dirty  <br />
 
-##Upgrade Errors
+## Upgrade Errors
 run ionic build   
-#Change Config Files for Upgrade
+# Change Config Files for Upgrade
 angular.json - change aot : true to "aot": false  <br />
 - tsconfig.json - change from to "target": "es2015 to "target": "es5"  <br />
 
@@ -114,14 +114,6 @@ https://github.com/kingsleytagbo/react-typescript/blob/master/LICENSE
 
 ## Author Information
 Kingsley Tagbo : http://code.full-stack.guru/ 
-
-
-
-# Ionic Angular Conference Application
-
-This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
-
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
 
 
 ## Table of Contents
