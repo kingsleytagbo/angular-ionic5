@@ -9,9 +9,9 @@ install -g @angular/cli --save  <br />
 npm install @ionic/angular@latest --save  <br />
 ng update @angular/core@latest @angular/cli@latest --allow-dirty  <br />
 
-## Upgrade Errors
+## Angular 9 Upgrade Errors
 run ionic build   
-# Change Config Files for Upgrade
+## # Change Config Files after Upgrade
 angular.json - change aot : true to "aot": false  <br />
 - tsconfig.json - change from to "target": "es2015 to "target": "es5"  <br />
 
