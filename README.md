@@ -3,7 +3,7 @@
 ## Pages
 
 ### Login Page
-![Login](src/assets/img/login-angular-ionic.png?raw=true "Login Page")
+![Login](src/assets/img/login.png?raw=true "Login Page")
 <br />
 ![Login Validation](src/assets/img/login-validation.png?raw=true "Login Page")
 
