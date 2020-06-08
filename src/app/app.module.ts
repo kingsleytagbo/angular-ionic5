@@ -7,13 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { HeaderModule } from '../app/components/header/header.module';
 import { HttpErrorInterceptor } from '../app/services/HttpErrorInterceptor';
+
+// Custom 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 // Ngrx
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
