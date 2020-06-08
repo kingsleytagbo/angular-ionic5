@@ -6,6 +6,10 @@
 ![Login](src/assets/img/login.png?raw=true "Login Page")
 ### Login Validation Page
 ![Login Validation](src/assets/img/login-validation.png?raw=true "Login Page")
+### Signup Page
+![Signup](src/assets/img/signup.png?raw=true "Signup Page")
+### Users Page
+![Users](src/assets/img/users.png?raw=true "Users Page")
 
 ## Angular 9 Upgrade
 ### Check Angular Version
