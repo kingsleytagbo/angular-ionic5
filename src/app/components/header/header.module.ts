@@ -17,7 +17,7 @@ import { Header } from '../header/header';
     declarations: [
         Header
     ],
-    entryComponents: [Header],
+    entryComponents: [],
     bootstrap: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

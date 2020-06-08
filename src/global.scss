@@ -33,3 +33,10 @@
  */
 
 @import "./app/app.scss";
+
+
+.page-content {
+    --background: var(--ion-color-secondary);
+    //Or 
+    --background: #f4f5f8;
+}

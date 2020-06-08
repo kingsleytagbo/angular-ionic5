@@ -7,13 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { CrudPageRoutingModule } from './crud-routing.module';
 
 import { CrudPage } from './crud.page';
+import { FooterModule } from '../../components/footer/footer.module';
+import { HeaderModule } from '../../components/header/header.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrudPageRoutingModule
+    CrudPageRoutingModule,
+    HeaderModule,
+    FooterModule
   ],
   declarations: [CrudPage]
 })

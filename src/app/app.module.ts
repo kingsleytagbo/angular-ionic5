@@ -10,12 +10,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
-import { HeaderModule } from '../app/components/header/header.module';
 import { HttpErrorInterceptor } from '../app/services/HttpErrorInterceptor';
-
-// Custom 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 // Ngrx
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
@@ -23,6 +18,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import * as AuthenticationReducers from './state/authentication/authentication-reducer';
 import { RootStoreEffects } from './state/root-store-effect';
+
+// Custom 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 
 export const reducers: ActionReducerMap<any> = {
@@ -44,6 +43,7 @@ export const reducers: ActionReducerMap<any> = {
     StoreDevtoolsModule.instrument({maxAge: 25}),
     EffectsModule.forRoot(RootStoreEffects)
   ],
+  exports: [],
   declarations: [AppComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },

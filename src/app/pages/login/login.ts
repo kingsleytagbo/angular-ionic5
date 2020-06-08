@@ -17,7 +17,7 @@ import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  styleUrls: ['./login.scss'],
+  styleUrls: ['login.scss'],
 })
 export class LoginPage {
   login: UserOptions = { username: '', password: '' };
@@ -38,6 +38,7 @@ export class LoginPage {
       ofType<AuthenticationActions.GetFailureAction>(AuthenticationActions.ActionTypes.GET_FAILURE)
     ).subscribe(data => {
       console.log({ 'login failure changes': data });
+      this.loggedIn = true;
       this.presentAlert();
     });
   }

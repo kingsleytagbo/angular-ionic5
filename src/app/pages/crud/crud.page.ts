@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { UserData } from '../../providers/user-data';
 
 @Component({
-  selector: 'crud',
-  templateUrl: './crud.page.html',
-  styleUrls: ['./crud.page.scss'],
+  selector: 'page-crud',
+  templateUrl: 'crud.page.html',
+  styleUrls: ['crud.page.scss'],
 })
 export class CrudPage implements OnInit {
   public state:any = [];
