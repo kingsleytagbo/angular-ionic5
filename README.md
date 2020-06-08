@@ -2,10 +2,9 @@
 
 ## Pages
 
-### LOgin Page
-#### Login Page
+### Login Page
 ![Login](src/assets/img/login.png?raw=true "Login Page")
-#### Login Validation Page
+### Login Validation Page
 ![Login Validation](src/assets/img/login-validation.png?raw=true "Login Page")
 
 ## Angular 9 Upgrade
