@@ -13,6 +13,8 @@ import { Subscription } from 'rxjs';
 import { ofType } from "@ngrx/effects";
 import { AlertController } from '@ionic/angular';
 
+import { EventService } from '../../services/EventService';
+
 
 @Component({
   selector: 'page-login',

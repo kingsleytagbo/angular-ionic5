@@ -8,6 +8,7 @@ import { ActionsSubject } from '@ngrx/store';
 
 import * as AuthenticationActions from '../../state/authentication/authentication-action';
 import { UserData } from '../../providers/user-data';
+import { EventService } from '../../services/EventService';
 
 
 @Component({
@@ -19,11 +20,13 @@ export class Header implements OnInit{
 
   public loggedIn = false;
   loginSubscription = new Subscription();
+  eventSubscription = new Subscription();
 
   constructor(public router: Router,
   public userData: UserData,
   private loginActionsSubject: ActionsSubject,
-  public alert: AlertController ) { 
+  public alert: AlertController,
+  private events: EventService ) { 
   }
 
   ngOnInit() {
@@ -34,10 +37,16 @@ export class Header implements OnInit{
       console.log({ 'login success changes': data });
       this.presentOKAlert('You are logged-in ...');
     });
+
+    //optional event notifications 
+    this.eventSubscription = this.events.event$.subscribe((item:any) => {
+      console.log({item: item});
+    });
   }
 
   ngOnDestroy() {
     this.loginSubscription.unsubscribe();
+    this.eventSubscription.unsubscribe();
   }
 
 

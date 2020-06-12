@@ -12,6 +12,7 @@ import { Authentication } from '../../models/authentication';
 import { switchAll } from 'rxjs/internal/operators/switchAll';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Route } from '@angular/router';
+import { EventService } from '../../services/EventService';
 
 @Injectable()
 export class AuthenticationStoreEffects {
@@ -19,7 +20,8 @@ export class AuthenticationStoreEffects {
         private actions$: Actions,
         private userService: UserData,
         private http: HttpClient,
-        private router: Router
+        private router: Router,
+        private events: EventService
     ) { }
 
 
@@ -55,6 +57,7 @@ export class AuthenticationStoreEffects {
           map(data => {
             // console.log({ map: { data:data, action:action, payload: action.payload } });
                   if (data === true) {
+                      this.events.publish(AuthenticationActions.GetSuccessAction, data);
                       return new AuthenticationActions.GetSuccessAction({ data: !data ? action.payload : data });
                   }
                   else{
